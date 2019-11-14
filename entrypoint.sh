@@ -13,16 +13,6 @@ if [ "${INPUT_BUNDLE}" = 'true' ]; then
   bundle exec rubocop -v
   bundle exec rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-review
 else
-  gem install rubocop
-  if [ -n "${INPUT_RUBOCOP_PLUGINS}" ];
-  then
-    OIFS="${IFS}";
-    IFS=',' plugin_array="${INPUT_RUBOCOP_PLUGINS}"
-    IFS="${OIFS}";
-    for i in $plugin_array
-    do
-      gem install "${i}"
-    done
-  fi
+  gem install rubocop rubocop-performance rubocop-rails rubocop-minitest rubocop-rspec
   rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-review
 fi

@@ -10,23 +10,12 @@ on:
 
 jobs:
   no_variables:
-    name: Run Reviewdog Rubocop Action with no no variables
+    name: Run Reviewdog Rubocop Action with no variables
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: reviewdog-rubocop-action
         uses: './'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  input_rubocop_plugins:
-    name: Run Reviewdog Rubocop Action with rubocop plugins input
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: reviewdog-rubocop-action
-        uses: './'
-        with:
-          rubocop_plugins: 'rubocop-performance, rubocop-rails'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   input_bundle:
