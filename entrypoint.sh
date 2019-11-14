@@ -5,7 +5,7 @@ set -e
 cd "$GITHUB_WORKSPACE" || exit
 
 export REVIEWDOG_GITHUB_API_TOKEN="$GITHUB_TOKEN"
-echo Review Dog Version: $(./bin/reviewdog -version)
+which reviewdog
 if [ "${INPUT_BUNDLE}" != 'true' ]; then [ "${INPUT_BUNDLE}" = 'false' ]; fi
 
 if [ "${INPUT_BUNDLE}" = 'true' ]; then
