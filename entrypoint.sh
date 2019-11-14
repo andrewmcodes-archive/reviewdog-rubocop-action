@@ -17,7 +17,7 @@ else
   if [ -n "${INPUT_RUBOCOP_PLUGINS}" ];
   then
     OIFS="${IFS}";
-    IFS=', ' plugin_array="${INPUT_RUBOCOP_PLUGINS}"
+    IFS=',' plugin_array="${INPUT_RUBOCOP_PLUGINS}"
     IFS="${OIFS}";
     for i in $plugin_array
     do
