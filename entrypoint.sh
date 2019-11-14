@@ -15,7 +15,7 @@ if [ "${INPUT_BUNDLE}" == 'true' ]; then
 else
   gem install rubocop
   if [ -n "${INPUT_RUBOCOP_PLUGINS}" ]; then
-    IFS=', ' read -r -a plugin_array <<< "${INPUT_RUBOCOP_PLUGINS}"
+    plugin_array=$(echo "${INPUT_RUBOCOP_PLUGINS}" | cut -d ":"  --output-delimiter=" " -f 1-)
     for i in "${plugin_array[@]}"
     do
       gem install "$i"
