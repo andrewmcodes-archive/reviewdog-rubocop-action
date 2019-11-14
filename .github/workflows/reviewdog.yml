@@ -26,7 +26,7 @@ jobs:
       - name: reviewdog-rubocop-action
         uses: './'
         with:
-          rubocop_plugins: 'rubocop-performance rubocop-rails'
+          rubocop_plugins: 'rubocop-performance, rubocop-rails'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   input_bundle:
