@@ -13,8 +13,8 @@ if [ "${INPUT_BUNDLE}" != 'true' ]; then [ "${INPUT_BUNDLE}" = 'false' ]; fi
 if [ "${INPUT_BUNDLE}" == 'true' ]; then
   bundle install
   bundle exec rubocop -v
-  bundle exec rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-check
+  bundle exec rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-review
 else
   gem install "$gems"
-  rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-check
+  rubocop | reviewdog -f=rubocop -name="rubocop" -reporter=github-pr-review
 fi
