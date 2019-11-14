@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: reviewdog-rubocop-action
-        uses: andrewmcodes/reviewdog-rubocop-action@master
+        uses: andrewmcodes/reviewdog-rubocop-action@${{ github.sha }}
         with:
           reporter: github-pr-review
         env:
