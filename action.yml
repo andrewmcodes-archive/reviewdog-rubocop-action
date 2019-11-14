@@ -2,17 +2,20 @@
 name: 'Reviewdog Rubocop Action'
 description: 'A GitHub Action that lints your Ruby code with Rubocop and outputs to the PR with Reviewdog!'
 author: 'Andrew Mason <andrewmcodes@protonmail.com>'
-env:
-  GITHUB_TOKEN: secrets.GITHUB_TOKEN
+
 inputs:
   bundle:
     description: "Boolean value that toggles gem installing rubocop gems or running bundle install"
     default: 'false'
+  github_token:
+    description: "GitHub token for your action run"
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.bundle }}
+    - ${{ inputs.github_token }}
 branding:
   icon: 'code'
   color: 'blue'
