@@ -3,7 +3,7 @@
 set -e
 
 cd "$GITHUB_WORKSPACE" || exit
-
+[ -z "$GITHUB_TOKEN" ] && echo "Empty" || echo "Not empty"
 export REVIEWDOG_GITHUB_API_TOKEN="$GITHUB_TOKEN"
 
 if [ "${INPUT_BUNDLE}" != 'true' ]; then [ "${INPUT_BUNDLE}" = 'false' ]; fi
