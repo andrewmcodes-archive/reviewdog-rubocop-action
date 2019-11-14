@@ -5,9 +5,6 @@ author: 'Andrew Mason <andrewmcodes@protonmail.com>'
 env:
   GITHUB_TOKEN: secrets.GITHUB_TOKEN
 inputs:
-  rubocop_plugins:
-    description: "List of rubocop plugins to add eg. 'rubocop-performance rubocop-minitest'"
-    default: ''
   bundle:
     description: "Boolean value that toggles gem installing rubocop gems or running bundle install"
     default: 'false'
@@ -15,7 +12,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.rubocop_plugins }}
     - ${{ inputs.bundle }}
 branding:
   icon: 'code'

@@ -9,14 +9,23 @@ on:
       - master
 
 jobs:
-  rubocop:
-    name: Run Reviewdog Rubocop Action
+  no_variables:
+    name: Run Reviewdog Rubocop Action with no variables
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: reviewdog-rubocop-action
-        uses: andrewmcodes/reviewdog-rubocop-action@master
+        uses: './'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  input_bundle:
+    name: Run Reviewdog Rubocop Action with bundle input
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: reviewdog-rubocop-action
+        uses: './'
         with:
-          reporter: github-pr-review
+          bundle: 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
