@@ -13,7 +13,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.bundle }}
-    - ${{ inputs.github_token }}
 branding:
   icon: 'code'
   color: 'blue'
